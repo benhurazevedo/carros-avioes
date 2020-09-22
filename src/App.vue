@@ -12,16 +12,17 @@
 </template>
 
 <script>
+import Carro from './servicos/carros';
+
 export default {
   name: 'app',
   data () {
     return {
-      carros: [
-        {marca: "VolksWagen", modelo: "Fusca"}
-        ,{marca: "GM", modelo: "Corsa"}
-        ,{marca: "Renault", modelo: "Clio"}
-      ]
+      carros: []
     }
+  }
+  ,mounted () {
+    Carro.lista().then(dado => this.carros = dado.data);
   }
 }
 </script>
